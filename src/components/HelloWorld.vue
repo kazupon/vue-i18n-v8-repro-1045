@@ -70,12 +70,14 @@ export default {
     msg: String,
   },
   data: () => ({
-    menu,
     isMenuOpened: true,
     locales: ["pl", "en"],
     currentLocale: "pl",
   }),
   computed: {
+    menu() {
+      return menu(this.$i18n)
+    },
     buttonTitle() {
       return this.locales.find((el) => el !== this.currentLocale);
     },
